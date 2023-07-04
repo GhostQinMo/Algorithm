@@ -1,43 +1,39 @@
 package com.GohostQiMo.Algorithm;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * @author Black_ghost
- * @title: solveNQueens0051
+ * @title: totalNQueens0052
  * @projectName Algorithm
  * @description :616  An unchanging God  Qin_Love
  * @vesion 1.0.0
- * @CreateDate 2023-07-03 21:29:44
- * @Description 力扣 0051 N皇后问题  回溯经典案例
+ * @CreateDate 2023-07-04 13:17:22
+ * @Description 力扣0052 N皇后2
  **/
-public class solveNQueens0051 {
+@Slf4j
+public class totalNQueens0052 {
 
     @Test
     public void test04(){
-        final List<List<String>> lists = solveNQueens(4);
-        lists.forEach(System.out::print);
+        final int total = totalNQueens(4);
+        System.out.println("total = " + total);
     }
 
-    List<List<String>> result = new ArrayList<>();
-    /**
-     *
-     * @param n
-     * @return
-     */
-    public List<List<String>> solveNQueens(int n) {
+    int count=0;
+    public int totalNQueens(int n) {
         char[][] chessboard = new char[n][n];
         //棋盘初始化操作
         for (char[] cchar : chessboard) {
             Arrays.fill(cchar, '.');
         }
         backtracking(0,  chessboard, n);
-        return result;
+        return count;
     }
+
     /**
      * 回溯函数
      *
@@ -48,7 +44,7 @@ public class solveNQueens0051 {
     public void backtracking(int curn,  char[][] chessboard, int n) {
         //回溯三部曲：终止条件
         if (curn == n) {
-            uplocd(chessboard);
+           count++;
             //找到一个返回，接着寻找下一个
             return;
         }
@@ -62,18 +58,6 @@ public class solveNQueens0051 {
         }
     }
 
-    /**
-     * 工具类，二位数组转一维
-     *
-     * @param chessboard
-     */
-    public void uplocd(char[][] chessboard) {
-        List<String> sigle = new ArrayList<>();
-        for (char[] cchar : chessboard) {
-            sigle.add(String.copyValueOf(cchar));
-        }
-        result.add(sigle);
-    }
 
     /**
      * 判单是否符合当前的N皇后的规则
@@ -104,4 +88,5 @@ public class solveNQueens0051 {
         }
         return true;
     }
+
 }
