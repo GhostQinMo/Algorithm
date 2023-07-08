@@ -46,6 +46,4 @@ public class LongestPalindrome {
         }
         return s.substring(left,left+maxlenth);
     }
-
-
 }
