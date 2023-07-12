@@ -50,6 +50,7 @@ public class maxSlidingWindow0239 {
     }
 
 
+
     //------------------------------------------------
 
     /**
@@ -59,6 +60,7 @@ public class maxSlidingWindow0239 {
      * @return
      */
     public int[] maxSlidingWindow(int[] nums,int k){
+        //在牛客网上的这个题有个条件： 窗口大于数组长度或窗口长度为0的时候，返回空。
         int[] result=new int[nums.length-k+1];
         int idx=0;
         //单调递增队列中的存储的是元素的索引
@@ -82,7 +84,8 @@ public class maxSlidingWindow0239 {
         return  result;
     }
     
-    
+
+
     @Test
     public void testDeque(){
         Deque<Integer> temp_que=new LinkedList<>();

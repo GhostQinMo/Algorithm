@@ -4,6 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
 
 /**
  * @author Black_ghost
@@ -62,5 +64,8 @@ public class reConstructBinaryTreeBM40 {
          int[] ints = Arrays.copyOfRange(result, 0, 0);
         final String s = Arrays.toString(ints);
         System.out.println(s);
+        HashMap hashMap=new HashMap();
+         Collection values = hashMap.values();
+
     }
 }
