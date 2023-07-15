@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -41,7 +42,7 @@ public class solveNQueens0051 {
     /**
      * 回溯函数
      *
-     * @param curn
+     * @param curn  当前到了哪一行
      * @param chessboard
      * @param n
      */
