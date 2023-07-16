@@ -16,11 +16,11 @@ import org.junit.Test;
 @Slf4j
 public class uniquePathsWithObstacles0063 {
     @Test
-    public void test01(){
+    public void test01() {
 //        int[][] nums={{1},{0}};
-        int[][] nums={{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{1,0},{0,0},{0,0},{0,0},{0,0},{0,0},
-                {1,0},{0,0},{0,0},{0,0},{0,0},{0,1},{0,0},{0,0},{1,0},{0,0},{0,0},{0,1},{0,0},{0,0},{0,0},
-                {0,0},{0,0},{0,0},{0,0},{0,1},{0,0},{0,0},{0,0},{0,0},{1,0},{0,0},{0,0},{0,0},{0,0}};
+        int[][] nums = {{0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {1, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0},
+                {1, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 1}, {0, 0}, {0, 0}, {1, 0}, {0, 0}, {0, 0}, {0, 1}, {0, 0}, {0, 0}, {0, 0},
+                {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 1}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {1, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}};
         final int i = uniquePathsWithObstacles_old(nums);
         System.out.println("i = " + i);
     }
@@ -34,21 +34,21 @@ public class uniquePathsWithObstacles0063 {
     //本来我想不用其他的内存空间，使用的原来的二维数组做dp数组，但是行不通  找到错误了，细节决定成败
     public int uniquePathsWithObstacles_old(int[][] obstacleGrid) {
         //如果起点和终点遇到了障碍直接返回0
-        if (obstacleGrid[0][0]==1  || obstacleGrid[obstacleGrid.length-1][obstacleGrid[0].length-1]==1){
+        if (obstacleGrid[0][0] == 1 || obstacleGrid[obstacleGrid.length - 1][obstacleGrid[0].length - 1] == 1) {
             return 0;
         }
         //dp五部曲：1.确定dp[i][j]数组的下标表示什么意思（表示从i,j到0,0的有多少条路径）
         //dp五部曲：3. 初始化递推数组
         //注意：这里会出现重复的初始化操作，00位置会在两个for循环中重复一次初始化
         //初始化第0行
-        for (int i = 0; i <obstacleGrid[0].length; i++) {
+        for (int i = 0; i < obstacleGrid[0].length; i++) {
             //如果是0则存在一条路径
-            if(obstacleGrid[0][i]==0){
-                obstacleGrid[0][i]=1;
-            }else {
+            if (obstacleGrid[0][i] == 0) {
+                obstacleGrid[0][i] = 1;
+            } else {
                 //如果遇到了第一个障碍，后面所有的全部为0
-                for (int j = i; j <obstacleGrid[0].length ; j++) {
-                    obstacleGrid[0][j]=0;
+                for (int j = i; j < obstacleGrid[0].length; j++) {
+                    obstacleGrid[0][j] = 0;
                 }
                 break;
             }
@@ -56,11 +56,11 @@ public class uniquePathsWithObstacles0063 {
         //初始化第0列
         for (int i = 1; i < obstacleGrid.length; i++) {
             //如果是0则存在一条路径
-            if (obstacleGrid[i][0]==0){
-                obstacleGrid[i][0]=1;
-            }else {
-                for (int j = i; j <obstacleGrid.length ; j++) {
-                    obstacleGrid[j][0]=0;
+            if (obstacleGrid[i][0] == 0) {
+                obstacleGrid[i][0] = 1;
+            } else {
+                for (int j = i; j < obstacleGrid.length; j++) {
+                    obstacleGrid[j][0] = 0;
                 }
                 break;
             }
@@ -68,17 +68,17 @@ public class uniquePathsWithObstacles0063 {
         //dp五部曲： 2.确定递推公式
         //d五部曲：4.确定遍历顺序
         for (int i = 1; i < obstacleGrid.length; i++) {
-            for (int j = 1; j <obstacleGrid[0].length; j++) {
+            for (int j = 1; j < obstacleGrid[0].length; j++) {
                 /*if (obstacleGrid[i][j]==0){
                     obstacleGrid[i][j]=obstacleGrid[i-1][j]+obstacleGrid[i][j-1];
                 }else {
                     //如果碰到障碍物则需要把当前的障碍物置为0;
                     obstacleGrid[i][j]=0;
                 }*/
-                obstacleGrid[i][j]= obstacleGrid[i][j]==0 ? obstacleGrid[i-1][j]+obstacleGrid[i][j-1] : 0;
+                obstacleGrid[i][j] = obstacleGrid[i][j] == 0 ? obstacleGrid[i - 1][j] + obstacleGrid[i][j - 1] : 0;
             }
         }
-        return obstacleGrid[obstacleGrid.length-1][obstacleGrid[0].length-1];
+        return obstacleGrid[obstacleGrid.length - 1][obstacleGrid[0].length - 1];
     }
 
 
@@ -91,7 +91,7 @@ public class uniquePathsWithObstacles0063 {
         if (obstacleGrid[m - 1][n - 1] == 1 || obstacleGrid[0][0] == 1) {
             return 0;
         }
-
+        //这里的obstacleGrid[i][0] == 0  条件可以终止遇到障碍物之后的情况
         for (int i = 0; i < m && obstacleGrid[i][0] == 0; i++) {
             dp[i][0] = 1;
         }
