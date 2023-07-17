@@ -45,6 +45,7 @@ public class maxSubArray0053 {
      * @return
      */
     public int maxSubArray1(int[] nums) {
+        //这里为什么一定需要一个最小负数？ 因为数组中连续最大和就是有可能是负数。
         int maxvalue=Integer.MIN_VALUE;
         int temp=0;
         for (int i = 0; i < nums.length; i++) {
@@ -68,7 +69,7 @@ public class maxSubArray0053 {
             return  nums[0];
         }
         int maxvalue=nums[0];
-        //dp五部曲：1.确定dp数组下标的意思，这里标识到当前索引位置的最大序列和
+        //dp五部曲：1.确定dp数组下标的意思，这里 dp[i]表示包括i之前的最大连续子序列和
         int dp[]=new int[nums.length];
         //dp五部曲：3.初始化dp数组  这里需要根据问题场景来确定
         dp[0]=nums[0];
@@ -76,7 +77,7 @@ public class maxSubArray0053 {
         for (int i = 1; i < nums.length; i++) {
             //dp五部曲：2.确定dp公式
             //dp五部曲：5.推到dp数组（举一个案例实际推导一下）
-            dp[i]=Math.max(dp[i-1]+nums[i],nums[i]);
+            dp[i]=Math.max(dp[i-1]+nums[i],nums[i]);   //这里结果只要最大数据没有说需要由哪些数组成的
             maxvalue=Math.max(dp[i],maxvalue);
         }
         return maxvalue;

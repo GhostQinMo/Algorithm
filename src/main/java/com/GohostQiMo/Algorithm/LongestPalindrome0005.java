@@ -4,7 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author Black_ghost
- * @title: LongestPalindrome
+ * @title: LongestPalindrome0005
  * @projectName Algorithm
  * @description :616  An unchanging God  Qin_Love
  * @vesion 1.0.0
@@ -12,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
  * @Description 力扣0005最长回文字串
  **/
 @Slf4j
-public class LongestPalindrome {
+public class LongestPalindrome0005 {
     //dp五部曲
     /*1.确定dp数组的下标表示什么，数组中存放的结果表示什么
      * 2.确定递推公式（根据题目分析，这里需要一定的经验）
@@ -21,7 +21,7 @@ public class LongestPalindrome {
      * 5.举出实例导处dp数组，验证小规模的数据是否正确，也是验证上面四部推出的方案是否可行*/
 
     public static void main(String[] args) {
-        LongestPalindrome longestPalindrome=new LongestPalindrome();
+        LongestPalindrome0005 longestPalindrome=new LongestPalindrome0005();
         final String babad = longestPalindrome.longestPalindrome("babad");
         System.out.println(babad);
     }
@@ -33,6 +33,7 @@ public class LongestPalindrome {
         boolean[][] palindrome=new boolean[s.length()][s.length()];
         int maxlenth = 1;
         int left = 0;
+        //这里的遍历顺序是根据递推公式推出来的
         for (int i = s.length()-1; i >= 0; i--) {
             for (int j = i; j <s.length() ; j++) {
                 if (s.charAt(i)==s.charAt(j) && (j-i<=1||palindrome[i+1][j-1])){
