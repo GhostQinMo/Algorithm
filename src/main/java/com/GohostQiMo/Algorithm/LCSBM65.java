@@ -22,6 +22,7 @@ public class LCSBM65 {
     public String LCS (String s1, String s2) {
         int len1=s1.length();
         int len2=s2.length();
+        //见题解（如果忘记了见题解）：dp[i][j]表示在s1中以i结尾，s2中以j结尾的字符串中的最长公共子序列长度
         int[][] dp=new int[len1+1][len2+1];
         for(int i=1;i<=len1;i++){
             for(int j=1;j<=len2;j++){

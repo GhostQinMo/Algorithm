@@ -22,7 +22,7 @@ public class LCSBM66 {
         int l1=str1.length();
         int l2=str2.length();
         //dp五部曲：1.确定dp数组（包括dp数组中的下标表示什么意思，数组中的值表示什么意思），
-        //dp[i][j]在这里表示str1.i（包括）为止的前序与str2.j（包括）为止的前序最长公共子串的长度
+        //dp[i][j]在这里表示str1.charAt(i-1)（包括）为止的前序与str2.chatAt(j-1)（包括）为止的前序最长公共子串的长度
         int[][] dp=new int[l1+1][l2+1];
         int max=0;
         int lastPosition=0;
@@ -31,7 +31,7 @@ public class LCSBM66 {
                 if(str1.charAt(i-1)==str2.charAt(j-1)){
                     dp[i][j]=dp[i-1][j-1]+1;
                 }else{
-                    dp[i][j]=0;  //这里为什么可以直接等于0，因为当前位不相等的话，最长长子串已经记录好了
+                    dp[i][j]=0;  //这里为什么可以直接等于0，因为当前位不相等的话，最长子串已经记录好了,还有就是需要连续的
                 }
                 if(dp[i][j]>max){
                     max=dp[i][j];
