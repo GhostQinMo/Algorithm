@@ -67,7 +67,7 @@ public class trap0042 {
         maxRight[height.length-1]=height[height.length-1];
         //记录每个柱子的左边第一根比自己高的柱子的高度
         for (int l = 1; l <height.length ; l++) {
-            maxLeft[l]=Math.max(height[l],maxLeft[l-1]);
+            maxLeft[l]=Math.max(height[l],maxLeft[l-1]);   //这里也算是动态规划的思想
         }
         //记录每个柱子的右边第一根比自己高的柱子的高度
         for (int r = height.length-2; r >0; r--) {
