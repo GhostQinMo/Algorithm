@@ -104,7 +104,7 @@ public class trap0042 {
                 idx.push(i);
             }else {
                 while (!idx.isEmpty() && height[i]> height[idx.peek()]){
-                    //单检测到第一个大于栈顶的柱时，则找到了栈顶的柱可以载水
+                    //当检测到第一个大于栈顶的柱时，则找到了栈顶的柱可以载水
                     int mid=idx.peek();
                     idx.pop();
                    if (!idx.isEmpty()){
