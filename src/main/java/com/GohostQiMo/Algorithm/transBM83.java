@@ -1,7 +1,12 @@
 package com.GohostQiMo.Algorithm;
 
 import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
 
+import javax.naming.Name;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Stack;
 
 /**
@@ -62,5 +67,10 @@ public class transBM83 {
             }
         }
         return result.toString();
+    }
+
+    @Test
+    public void test01(){
+
     }
 }
