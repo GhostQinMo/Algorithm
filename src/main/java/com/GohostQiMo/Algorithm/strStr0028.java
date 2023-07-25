@@ -4,7 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author Black_ghost
- * @title: strStr
+ * @title: strStr0028
  * @projectName Algorithm
  * @description :616  An unchanging God  Qin_Love
  * @vesion 1.0.0
@@ -12,9 +12,9 @@ import lombok.extern.slf4j.Slf4j;
  * @Description KMP字符串匹配
  **/
 @Slf4j
-public class strStr {
+public class strStr0028 {
     public static void main(String[] args){
-        strStr strfun=new strStr();
+        strStr0028 strfun=new strStr0028();
         final int i = strfun.strStr("sadbutsad", "sad");
         System.out.println("i = " + i);
     }
