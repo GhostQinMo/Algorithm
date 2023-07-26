@@ -33,7 +33,7 @@ public class strStr0028 {
         getNext(next,needle);
         int j=0;
         for (int i = 0; i < haystack.length(); i++) {
-            while (j>0 && haystack.charAt(j)!=needle.charAt(i)){
+            while (j>0 && haystack.charAt(i)!=needle.charAt(j)){
                 j=next[j-1];
             }
             if (haystack.charAt(i)==needle.charAt(j)){
