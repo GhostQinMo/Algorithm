@@ -37,6 +37,7 @@ public class combinationSum {
      * @param target
      * @param startIndex
      */
+    //关于什么时候需要startIndex呢？ 一个集合中求组合的情况
     public void backtracking(List<List<Integer>> result,List<Integer> path,int[] candidates,int sum,int target, int startIndex){
         if(sum==target){
             result.add(new ArrayList<>(path));
