@@ -1,6 +1,10 @@
 package com.GohostQiMo.Algorithm;
 
 import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Black_ghost
@@ -40,7 +44,7 @@ public class rotateMatrixBM99 {
     }
 
 
-    //最简写法  但是需要N平方的空间
+    //最简写法  但是需要N平方的空间  需要算出来一个表达式
     public int[][] rotateMatrix (int[][] mat, int n) {
         int[][] result=new  int[n][n];
         for(int i=0;i<n;i++){

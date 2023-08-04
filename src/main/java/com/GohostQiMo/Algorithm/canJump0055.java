@@ -24,6 +24,7 @@ public class canJump0055 {
     public boolean  canJump(int[] nums){
         if (nums.length==1) return true;
         int conver=nums[0];
+        //我开始没有看题解的写法：
         /*for (int i = 1; i <nums.length ; i++) {
             if (i+nums[i]>conver && i<=conver){
                 conver=i+nums[i];
@@ -32,6 +33,7 @@ public class canJump0055 {
                 return true;
             }
         }*/
+        //题解之后的写法
         for (int i = 1; i <=conver; i++) {
             if (i+nums[i]>conver){
                 conver=i+nums[i];
