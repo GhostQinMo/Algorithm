@@ -79,6 +79,12 @@ public class candyBM95 {
 
 
     //优化之后的写法
+
+    /**
+     * 重复使用一个一位数组
+     * @param arr
+     * @return
+     */
     public int candy_prefer (int[] arr) {
         int[] result=new int[arr.length];
         Arrays.fill(result,1);
