@@ -16,7 +16,7 @@ import java.util.List;
  * @Description 力扣0039组合总和
  **/
 @Slf4j
-public class combinationSum {
+public class combinationSum0039 {
     public static void main(String[] args) {
 
     }
