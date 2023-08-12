@@ -29,10 +29,17 @@ public class merge0056 {
         }
     }
 
+    /**
+     *  复习：2023/08/11
+     * 时间复杂度 ： O(NlogN) 排序需要O(NlogN)
+     * 空间复杂度 ： O(logN)  java 的内置排序是快速排序 需要 O(logN)空间
+     * @param intervals
+     * @return
+     */
     public int[][] merge(int[][] intervals) {
         //存放结果容器
         List<int[]> result = new ArrayList<>();
-        //使用左边界做排序处理
+        //使用左边界做排序处理（默认升序排序）
         /*Arrays.sort(intervals, (x,y)->{
             return Integer.compare(x[0],y[0]);
         });*/
