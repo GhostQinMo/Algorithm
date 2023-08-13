@@ -52,15 +52,15 @@ public class restoreIpAddressesBM74 {
             for (int i = sidex; i < sidex + 3 && i < s.length(); i++) {
                 cur +=s.charAt(i);
                 //转为数字看是否符合作为ip的1/4
-                int temp = Integer.valueOf(cur.toString());
+                int temp = Integer.parseInt(cur);
                 //记录递归前的path，用于回溯
                 String str1 = path.toString();
                 //小于等于255 大于等于0，除了0之外不能含有前导0
                 if (temp <= 255 && (cur.charAt(0) != '0' || cur.length()==1 )) {
                     if (numpoint - 3 != 0) {
-                        path = path.append(cur + ".");
+                        path.append(cur).append(".");
                     } else {
-                        path = path.append(cur);
+                        path.append(cur);
                     }
                     //递归
 //                    numpoint++;
