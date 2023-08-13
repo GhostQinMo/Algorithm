@@ -54,7 +54,7 @@ public class LetterCombinations0017 {
             result.add(temp.toString());
             return;
         }
-        //去当前字母对应的字符串
+        //取当前字母对应的字符串
         String curnum = numstring[digits.charAt(num) - '0'];
         for (int i = 0; i < curnum.length(); i++) {
             temp.append(curnum.charAt(i));
