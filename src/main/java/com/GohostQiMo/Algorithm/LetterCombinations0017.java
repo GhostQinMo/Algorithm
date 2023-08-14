@@ -56,6 +56,7 @@ public class LetterCombinations0017 {
         }
         //取当前字母对应的字符串
         String curnum = numstring[digits.charAt(num) - '0'];
+        //注意这里没有startindex了，因为不是在一个集合中求组合
         for (int i = 0; i < curnum.length(); i++) {
             temp.append(curnum.charAt(i));
             backTracking(digits, numstring, num + 1);

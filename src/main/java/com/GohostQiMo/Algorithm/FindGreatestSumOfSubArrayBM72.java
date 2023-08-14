@@ -26,6 +26,7 @@ public class FindGreatestSumOfSubArrayBM72 {
         int max=array[0];
         dp[0]=array[0];
         for(int i=1;i<len;i++){
+            //这里也是贪心的思想
             dp[i]=Math.max(dp[i-1]+array[i],array[i]);
             if(dp[i] >max){
                 max=dp[i];
