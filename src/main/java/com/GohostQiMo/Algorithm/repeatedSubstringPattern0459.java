@@ -16,7 +16,7 @@ public class repeatedSubstringPattern0459 {
     //解法一：移动匹配
     public boolean repeatedSubstringPattern(String s) {
         String temp=s+s;
-        //注意：这里为什么需要去头去尾？ 因为这里是在s+s中找s，如果去头和尾，肯定会有s的存在
+        //注意：这里为什么需要去头去尾？ 因为这里是在s+s中找s，如果不去头和尾，肯定会有s的存在
         temp=temp.substring(1,temp.length()-1);
         if (temp.contains(s))
             return true;
@@ -33,7 +33,7 @@ public class repeatedSubstringPattern0459 {
          int[] next = getNext(s, new int[len]);
          //取最后一个字符的最长前后缀的长度
          int max_length = next[len - 1];
-         //必须存在最长前后缀才能比较，不然肯定不是重复串
+         //必须存在最长前后缀才能比较，不然肯定不是重复串，所以先判断max_length是否为0
          if (max_length!=0 && len%(len-max_length)==0){
              return true;
          }
@@ -58,7 +58,7 @@ public class repeatedSubstringPattern0459 {
         int i=1,j=0;
         int len=s.length();
         for (; i <len ; i++) {
-            //j和i索引位上的字符不相等的情况
+            //j和i索引位上的字符不相等的情况  注意这里是while,不是if
             while (j>0 && s.charAt(i)!=s.charAt(j)){
                 //找前一位的最长相等前后缀的长度
                 j=next[j-1];
