@@ -54,6 +54,7 @@ public class findSubsequences0491 {
         //遍历
         for (int i = startIndex; i < nums.length; i++) {
             //如果路径不为空，且当前元素小于路径中最后一个元素或者当前元素已经被使用过了，那么就跳过
+            //used[nums[i] + 100] 保证了树的同层不会出现重复元素，但是不同层可以出现重复元素，也就会同一树枝上的元素可以重复
             if ((path.size() > 0 && nums[i] < path.get(path.size() - 1)) || used[nums[i] + 100]) {
                 continue;
             }

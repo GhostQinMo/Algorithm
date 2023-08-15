@@ -46,7 +46,12 @@ public class subsetsWithDup0090 {
         result.add(new ArrayList<>(path));
         //遍历
         for (int i = startIndex; i < num.length; i++) {
-            //去重剪枝，因为这里是组合不是排列，所以不需要used数组也可以去重
+            //去重剪枝，因为这里是组合不是排列，所以不需要used数组也可以去重，直接写成下面这样也可以了
+           /* if (i > 0 && nums[i] == nums[i - 1] && used[i - 1] == false) {
+                continue;
+            }*/
+            //i>startIndex可以保证与nums[i]相同的元素在同层一定会出现一次，
+            // num[i] == num[i - 1]可以保证与nums[i]相同的元素在同层只出现一次
             if (i > startIndex && num[i] == num[i - 1]) {
                 continue;
             }
