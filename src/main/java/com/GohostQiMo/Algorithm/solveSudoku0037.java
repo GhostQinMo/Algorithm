@@ -1,6 +1,7 @@
 package com.GohostQiMo.Algorithm;
 
 import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
 
 /**
  * @author Black_ghost
@@ -43,6 +44,13 @@ public class solveSudoku0037 {
                 return  false;
             }
         }
+        //打印board
+        for (char[] chars : board) {
+            for (char aChar : chars) {
+                System.out.print(aChar+" ");
+            }
+            System.out.println();
+        }
         return true;
     }
 
@@ -78,4 +86,20 @@ public class solveSudoku0037 {
         return  true;
     }
 
+    @Test
+    public void test01(){
+        char[][] board={
+                {'5','3','.','.','7','.','.','.','.'},
+                {'6','.','.','1','9','5','.','.','.'},
+                {'1','.','8','.','.','.','.','6','.'},
+                {'8','.','.','.','6','.','.','.','.'},
+                {'4','.','.','8','.','3','.','.','.'},
+                {'7','.','.','.','2','.','.','.','.'},
+                {'9','.','.','.','.','.','6','.','.'},
+                {'2','.','.','3','.','.','.','.','.'},
+                {'3','.','.','.','.','.','.','.','.'}
+        };
+        final boolean b = solveSudoku(board);
+        System.out.println("b = " + b);
+    }
 }

@@ -19,14 +19,13 @@ import java.util.List;
 public class solveNQueens0051 {
 
     @Test
-    public void test04(){
+    public void test04() {
         final List<List<String>> lists = solveNQueens(4);
         lists.forEach(System.out::print);
     }
 
     List<List<String>> result = new ArrayList<>();
     /**
-     *
      * @param n
      * @return
      */
@@ -36,17 +35,18 @@ public class solveNQueens0051 {
         for (char[] cchar : chessboard) {
             Arrays.fill(cchar, '.');
         }
-        backtracking(0,  chessboard, n);
+        backtracking(0, chessboard, n);
         return result;
     }
+
     /**
      * 回溯函数
      *
-     * @param curn  当前到了哪一行
+     * @param curn       当前到了哪一行
      * @param chessboard 棋盘
-     * @param n 一共有多少行
+     * @param n          一共有多少行
      */
-    public void backtracking(int curn,  char[][] chessboard, int n) {
+    public void backtracking(int curn, char[][] chessboard, int n) {
         //回溯三部曲：终止条件
         if (curn == n) {
             uplocd(chessboard);
@@ -58,7 +58,7 @@ public class solveNQueens0051 {
             chessboard[curn][j] = 'Q';
             if (isvalid(curn, j, chessboard, n)) {
                 //在这里包括了检测行，所以在isvalid中不需要检测行
-                backtracking(curn + 1,  chessboard, n);
+                backtracking(curn + 1, chessboard, n);
             }
             chessboard[curn][j] = '.';
         }
@@ -79,8 +79,9 @@ public class solveNQueens0051 {
 
     /**
      * 判单是否符合当前的N皇后的规则
-     * @param curn  当前行
-     * @param curl  当前列
+     *
+     * @param curn       当前行
+     * @param curl       当前列
      * @param chessboard
      * @param n
      * @return
@@ -89,19 +90,19 @@ public class solveNQueens0051 {
     public boolean isvalid(int curn, int curl, char[][] chessboard, int n) {
         //检测列
         for (int i = 0; i < curn; i++) {
-            if (chessboard[i][curl]=='Q'){
+            if (chessboard[i][curl] == 'Q') {
                 return false;
             }
         }
         //检测45度
-        for (int i =curn-1, j = curl+1 ; i >=0 && j < n; i--,j++){
-            if (chessboard[i][j]=='Q'){
+        for (int i = curn - 1, j = curl + 1; i >= 0 && j < n; i--, j++) {
+            if (chessboard[i][j] == 'Q') {
                 return false;
             }
         }
         //检测135度
-        for (int i= curn-1,j=curl-1; i>=0 && j>=0; i--,j-- ) {
-            if (chessboard[i][j]=='Q'){
+        for (int i = curn - 1, j = curl - 1; i >= 0 && j >= 0; i--, j--) {
+            if (chessboard[i][j] == 'Q') {
                 return false;
             }
         }
