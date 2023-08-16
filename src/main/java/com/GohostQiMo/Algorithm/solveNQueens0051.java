@@ -43,20 +43,21 @@ public class solveNQueens0051 {
      * 回溯函数
      *
      * @param curn  当前到了哪一行
-     * @param chessboard
-     * @param n
+     * @param chessboard 棋盘
+     * @param n 一共有多少行
      */
     public void backtracking(int curn,  char[][] chessboard, int n) {
         //回溯三部曲：终止条件
         if (curn == n) {
             uplocd(chessboard);
-            //找到一个返回，接着寻找下一个
+            //找到一个返回，接着寻找下一个，这里因为只收集到叶子节点，所以可以直接返回，如果还要收集非叶子节点的就不能返回
             return;
         }
         //回溯三部曲：确定单层遍历逻辑
         for (int j = 0; j < n; j++) {
             chessboard[curn][j] = 'Q';
             if (isvalid(curn, j, chessboard, n)) {
+                //在这里包括了检测行，所以在isvalid中不需要检测行
                 backtracking(curn + 1,  chessboard, n);
             }
             chessboard[curn][j] = '.';
@@ -84,6 +85,7 @@ public class solveNQueens0051 {
      * @param n
      * @return
      */
+    //按照国际象棋的规则，皇后可以攻击与之处在同一行或同一列或同一斜线上的棋子。
     public boolean isvalid(int curn, int curl, char[][] chessboard, int n) {
         //检测列
         for (int i = 0; i < curn; i++) {
