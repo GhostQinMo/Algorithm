@@ -51,7 +51,7 @@ public class reverseKGroup {
     }
 
     /**
-     * 递归函数
+     * 翻转链表
      * @param head
      * @param tail
      * @return
