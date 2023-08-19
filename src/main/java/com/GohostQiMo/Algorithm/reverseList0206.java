@@ -39,15 +39,18 @@ public class reverseList0206 {
      * @return
      */
     public ListNode reverseList_old(ListNode head) {
+        //前节点类似于哨兵节点
         ListNode prenode = null;
+        //当前操作的节点
         ListNode cur = head;
-        ListNode temp = null;
+        //临时节点
+        ListNode next = null;
         while (cur != null) {
             //保留当前节点的下一个节点
-            temp = cur.next;
+            next = cur.next;
             cur.next = prenode;
             prenode = cur;
-            cur = temp;
+            cur = next;
         }
         return prenode;
     }

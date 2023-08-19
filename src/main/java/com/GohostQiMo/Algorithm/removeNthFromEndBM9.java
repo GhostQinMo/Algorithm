@@ -12,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
  * @Description 牛客101 BM9 删除链表的倒数第n个节点
  **/
 @Slf4j
-public class removeNthFromEndBM9 {
+public class removeNthFromEndBM9{
 
     public class ListNode {
         int val;
@@ -31,7 +31,7 @@ public class removeNthFromEndBM9 {
      * @param n    int整型
      * @return ListNode类
      */
-    //题目保证了N一定是有效的
+    //题目保证了n一定是有效的
     public ListNode removeNthFromEnd(ListNode head, int n) {
         // write code here
         //需要注意的地方，这种链表设置一个虚拟头节点可以很好的处理头节点的删除
@@ -42,10 +42,13 @@ public class removeNthFromEndBM9 {
         for (int i = 0; i < n; i++) {
             fastnode=fastnode.next;
         }
+        //注意这里是需要删除链表的倒数第n个节点，所有需要找的是倒数第n-1个节点
+        //需要自己画个图就知道了
         while (fastnode.next !=null){
             fastnode=fastnode.next;
             slownode=slownode.next;
         }
+        //进行删除操作
         slownode.next=slownode.next.next;
         return dummynode.next;
     }
