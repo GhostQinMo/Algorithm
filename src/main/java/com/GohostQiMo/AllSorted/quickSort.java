@@ -56,8 +56,10 @@ public class quickSort {
     @Test
     public void test01() {
         //乱序数组
-        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 10, 9};
+//        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 10, 9};
 //        int[] arr = {6,5,7,3,5,7,6};
+//        int[] arr={10,9,8,7,6,5,4,3,2,1};
+        int[] arr={1,1,1,1,1};
         quickSort(arr, 0, arr.length - 1);
 //        recursion(arr,0,arr.length-1);
         for (int i : arr) {
@@ -133,7 +135,7 @@ public class quickSort {
                 arr[j]=t;
             }
         }
-        //交换基准 到这里了i和j一定是相等的，所以使用i还是j多可以
+        //交换基准 到这里了i和j一定是相等的，所以使用i还是j都可以
         log.debug("i==j,{}",i==j);
         arr[left]=arr[i];
         arr[i]=temp;

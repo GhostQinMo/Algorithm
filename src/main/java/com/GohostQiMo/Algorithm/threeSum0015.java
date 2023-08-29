@@ -57,9 +57,7 @@ public class threeSum0015 {
                     right--;
                     left++;
                 }
-
             }
-
         }
         return result;
     }
