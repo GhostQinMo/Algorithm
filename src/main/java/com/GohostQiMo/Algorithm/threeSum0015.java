@@ -25,7 +25,7 @@ public class threeSum0015 {
         lists.forEach(System.out::println);
     }
 
-    //什么时候不能用map结构来做，这里个与两数之和有什么区别？由于这里需要排序，会导致索引乱套
+    //什么时候不能用map结构来做，这里个与两数之和有什么区别？由于这里需要排序，会导致索引乱套,这里是类似于组合问题
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
         Arrays.sort(nums);
@@ -35,6 +35,10 @@ public class threeSum0015 {
         Integer numsLength = nums.length;
         int left, right;
         for (int i = 0; i < numsLength; i++) {
+            //添加剪枝操作
+            if(nums[i]>0){
+                return result;
+            }
             left = i + 1;
             right = numsLength - 1;
             if (i > 0 && nums[i] == nums[i - 1]) {

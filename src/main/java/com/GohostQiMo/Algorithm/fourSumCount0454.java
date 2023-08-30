@@ -44,4 +44,6 @@ public class fourSumCount0454 {
         int[] nums4={0,2};
         System.out.println(fourSumCount(nums1,nums2,nums3,nums4));
     }
+
+
 }
