@@ -1,2 +1,2 @@
 # Algorithm
-保存每天一个算法题的仓库
+Daily algorithm, like this every day.
