@@ -1,2 +1,2 @@
 # Algorithm
-Daily algorithm, like this every day.
+Daily algorithm, like this every day
